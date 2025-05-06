@@ -22,7 +22,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
       <div className="bg-white p-3 shadow rounded">
         <p className="font-medium">{label}</p>
         <p className="text-sm text-muted-foreground">
-          ${payload[0].value.toLocaleString()}
+          ₹{payload[0].value.toLocaleString()}
         </p>
       </div>
     );
@@ -44,7 +44,7 @@ const MonthlySpending: React.FC<MonthlySpendingProps> = ({ className }) => {
             <YAxis 
               axisLine={false} 
               tickLine={false} 
-              tickFormatter={(value) => `$${value}`}
+              tickFormatter={(value) => `₹${value}`}
             />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="amount" fill="#33C3F0" radius={[4, 4, 0, 0]} />

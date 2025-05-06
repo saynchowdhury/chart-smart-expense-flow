@@ -20,13 +20,13 @@ const BudgetCategory: React.FC<BudgetCategoryProps> = ({ category, spent, budget
       <div className="flex justify-between items-center">
         <span className="font-medium text-sm">{category}</span>
         <span className="text-sm text-muted-foreground">
-          ${spent.toLocaleString()} / ${budget.toLocaleString()}
+          ₹{spent.toLocaleString()} / ₹{budget.toLocaleString()}
         </span>
       </div>
       <Progress value={percentage} className="h-2" indicatorColor={color} />
       <div className="flex justify-between items-center text-xs">
         <span className={isOverBudget ? 'text-red-600' : 'text-green-600'}>
-          {isOverBudget ? 'Over by' : 'Remaining'}: ${Math.abs(remaining).toLocaleString()}
+          {isOverBudget ? 'Over by' : 'Remaining'}: ₹{Math.abs(remaining).toLocaleString()}
         </span>
         <span>{percentage}%</span>
       </div>

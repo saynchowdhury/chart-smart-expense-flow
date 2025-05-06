@@ -19,14 +19,14 @@ const Index = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <StatCard 
           title="Total Expenses" 
-          value="$0.00" 
+          value="₹0.00" 
           description="Current Month"
           icon={<CreditCard className="h-6 w-6" />}
           trend={null}
         />
         <StatCard 
           title="Total Budget" 
-          value="$2,600.00" 
+          value="₹2,600.00" 
           description="Current Month"
           icon={<Wallet className="h-6 w-6" />}
         />

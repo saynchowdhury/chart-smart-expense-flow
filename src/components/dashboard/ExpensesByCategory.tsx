@@ -24,7 +24,7 @@ const CustomTooltip = ({ active, payload }: any) => {
       <div className="bg-white p-3 shadow rounded">
         <p className="font-medium">{payload[0].name}</p>
         <p className="text-sm text-muted-foreground">
-          ${payload[0].value.toLocaleString()} ({payload[0].payload.percentage}%)
+          ₹{payload[0].value.toLocaleString()} ({payload[0].payload.percentage}%)
         </p>
       </div>
     );

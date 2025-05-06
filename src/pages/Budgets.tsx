@@ -16,12 +16,12 @@ interface BudgetCategory {
 }
 
 const initialBudgets: BudgetCategory[] = [
-  { id: '1', category: 'Housing', budgeted: 1500, spent: 1200, color: 'bg-budget-blue' },
-  { id: '2', category: 'Food', budgeted: 500, spent: 580, color: 'bg-budget-green' },
-  { id: '3', category: 'Transportation', budgeted: 400, spent: 320, color: 'bg-budget-purple' },
-  { id: '4', category: 'Entertainment', budgeted: 200, spent: 250, color: 'bg-budget-orange' },
-  { id: '5', category: 'Utilities', budgeted: 300, spent: 195, color: 'bg-budget-yellow' },
-  { id: '6', category: 'Others', budgeted: 500, spent: 430, color: 'bg-budget-red' },
+  { id: '1', category: 'Housing', budgeted: 1500, spent: 0, color: 'bg-budget-blue' },
+  { id: '2', category: 'Food', budgeted: 500, spent: 0, color: 'bg-budget-green' },
+  { id: '3', category: 'Transportation', budgeted: 400, spent: 0, color: 'bg-budget-purple' },
+  { id: '4', category: 'Entertainment', budgeted: 200, spent: 0, color: 'bg-budget-orange' },
+  { id: '5', category: 'Utilities', budgeted: 300, spent: 0, color: 'bg-budget-yellow' },
+  { id: '6', category: 'Others', budgeted: 500, spent: 0, color: 'bg-budget-red' },
 ];
 
 const Budgets = () => {
@@ -77,15 +77,15 @@ const Budgets = () => {
               <div className="flex justify-between items-center mb-2">
                 <span className="font-medium">Overall Budget</span>
                 <span className="text-sm text-muted-foreground">
-                  ${totalSpent.toLocaleString()} / ${totalBudgeted.toLocaleString()}
+                  ₹{totalSpent.toLocaleString()} / ₹{totalBudgeted.toLocaleString()}
                 </span>
               </div>
               <Progress value={budgetProgress} className="h-3" />
               <div className="flex justify-between items-center mt-1 text-xs">
                 <span className={totalSpent > totalBudgeted ? 'text-red-600' : 'text-green-600'}>
                   {totalSpent > totalBudgeted 
-                    ? `Over by $${(totalSpent - totalBudgeted).toLocaleString()}`
-                    : `Remaining: $${(totalBudgeted - totalSpent).toLocaleString()}`
+                    ? `Over by ₹${(totalSpent - totalBudgeted).toLocaleString()}`
+                    : `Remaining: ₹${(totalBudgeted - totalSpent).toLocaleString()}`
                   }
                 </span>
                 <span>{budgetProgress}%</span>
@@ -114,7 +114,7 @@ const Budgets = () => {
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="budgeted">Monthly Budget ($)</Label>
+                <Label htmlFor="budgeted">Monthly Budget (₹)</Label>
                 <Input 
                   id="budgeted" 
                   name="budgeted" 
@@ -148,13 +148,13 @@ const Budgets = () => {
                     <div className="flex justify-between items-center">
                       <span className="font-medium">{budget.category}</span>
                       <span className="text-sm text-muted-foreground">
-                        ${budget.spent.toLocaleString()} / ${budget.budgeted.toLocaleString()}
+                        ₹{budget.spent.toLocaleString()} / ₹{budget.budgeted.toLocaleString()}
                       </span>
                     </div>
                     <Progress value={percentage} className="h-2" />
                     <div className="flex justify-between items-center text-xs">
                       <span className={isOverBudget ? 'text-red-600' : 'text-green-600'}>
-                        {isOverBudget ? 'Over by' : 'Remaining'}: ${Math.abs(remaining).toLocaleString()}
+                        {isOverBudget ? 'Over by' : 'Remaining'}: ₹{Math.abs(remaining).toLocaleString()}
                       </span>
                       <span>{percentage}%</span>
                     </div>

@@ -32,13 +32,13 @@ const ExportData: React.FC<ExportDataProps> = ({
     const currentDate = format(new Date(), 'yyyy-MM-dd');
     const filename = `budget_export_${currentDate}.xlsx`;
     
-    // Create a sample CSV content
+    // Create a sample CSV content with INR currency
     const csvContent = `Date,Description,Category,Amount
-2023-05-01,Grocery Store,Food,-125.30
-2023-05-02,Monthly Salary,Income,3000.00
-2023-05-03,Electric Bill,Utilities,-85.75
-2023-05-04,Coffee Shop,Food,-4.50
-2023-05-05,Movie Tickets,Entertainment,-32.00`;
+2023-05-01,Grocery Store,Food,₹125.30
+2023-05-02,Monthly Salary,Income,₹3000.00
+2023-05-03,Electric Bill,Utilities,₹85.75
+2023-05-04,Coffee Shop,Food,₹4.50
+2023-05-05,Movie Tickets,Entertainment,₹32.00`;
     
     // Create a blob with the data
     const blob = new Blob([csvContent], { type: 'text/csv' });

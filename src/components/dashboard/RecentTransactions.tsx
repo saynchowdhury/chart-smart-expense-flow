@@ -42,7 +42,7 @@ const RecentTransactions: React.FC<RecentTransactionsProps> = ({ className }) =>
                     <td className="p-4 text-sm">{transaction.description}</td>
                     <td className="p-4 text-sm">{transaction.category}</td>
                     <td className={`p-4 text-sm text-right ${transaction.amount >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                      {transaction.amount >= 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                      {transaction.amount >= 0 ? '+' : ''}₹{Math.abs(transaction.amount).toFixed(2)}
                     </td>
                   </tr>
                 ))
