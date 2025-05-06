@@ -36,10 +36,10 @@ const BudgetCategory: React.FC<BudgetCategoryProps> = ({ category, spent, budget
 
 const BudgetOverview: React.FC = () => {
   const budgetCategories = [
-    { category: 'Housing', spent: 1200, budget: 1500, color: 'bg-budget-blue' },
-    { category: 'Food', spent: 580, budget: 500, color: 'bg-budget-green' },
-    { category: 'Transportation', spent: 320, budget: 400, color: 'bg-budget-purple' },
-    { category: 'Entertainment', spent: 250, budget: 200, color: 'bg-budget-orange' },
+    { category: 'Housing', spent: 0, budget: 1500, color: 'bg-budget-blue' },
+    { category: 'Food', spent: 0, budget: 500, color: 'bg-budget-green' },
+    { category: 'Transportation', spent: 0, budget: 400, color: 'bg-budget-purple' },
+    { category: 'Entertainment', spent: 0, budget: 200, color: 'bg-budget-orange' },
   ];
   
   return (

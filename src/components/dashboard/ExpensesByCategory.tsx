@@ -10,12 +10,12 @@ interface ExpenseByCategoryProps {
 const COLORS = ['#33C3F0', '#4CAF50', '#FF6B6B', '#FFC107', '#9C27B0', '#FF9800'];
 
 const data = [
-  { name: 'Housing', value: 1200 },
-  { name: 'Food', value: 580 },
-  { name: 'Transportation', value: 320 },
-  { name: 'Entertainment', value: 250 },
-  { name: 'Utilities', value: 195 },
-  { name: 'Others', value: 430 },
+  { name: 'Housing', value: 0 },
+  { name: 'Food', value: 0 },
+  { name: 'Transportation', value: 0 },
+  { name: 'Entertainment', value: 0 },
+  { name: 'Utilities', value: 0 },
+  { name: 'Others', value: 0 },
 ];
 
 const CustomTooltip = ({ active, payload }: any) => {
@@ -39,7 +39,7 @@ const ExpensesByCategory: React.FC<ExpenseByCategoryProps> = ({ className }) => 
   // Add percentage to data items
   const dataWithPercentage = data.map(item => ({
     ...item,
-    percentage: `${((item.value / totalValue) * 100).toFixed(1)}%`
+    percentage: totalValue === 0 ? '0.0%' : `${((item.value / totalValue) * 100).toFixed(1)}%`
   }));
   
   return (

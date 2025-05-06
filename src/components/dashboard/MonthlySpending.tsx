@@ -8,12 +8,12 @@ interface MonthlySpendingProps {
 }
 
 const data = [
-  { month: 'Jan', amount: 2300 },
-  { month: 'Feb', amount: 2100 },
-  { month: 'Mar', amount: 2500 },
-  { month: 'Apr', amount: 2800 },
-  { month: 'May', amount: 2600 },
-  { month: 'Jun', amount: 2900 },
+  { month: 'Jan', amount: 0 },
+  { month: 'Feb', amount: 0 },
+  { month: 'Mar', amount: 0 },
+  { month: 'Apr', amount: 0 },
+  { month: 'May', amount: 0 },
+  { month: 'Jun', amount: 0 },
 ];
 
 const CustomTooltip = ({ active, payload, label }: any) => {

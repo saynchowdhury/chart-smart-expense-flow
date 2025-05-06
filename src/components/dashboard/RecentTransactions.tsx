@@ -15,43 +15,7 @@ interface RecentTransactionsProps {
   className?: string;
 }
 
-const transactions: Transaction[] = [
-  {
-    id: '1',
-    date: new Date(2023, 4, 1),
-    description: 'Grocery Store',
-    category: 'Food',
-    amount: -125.30,
-  },
-  {
-    id: '2',
-    date: new Date(2023, 4, 2),
-    description: 'Monthly Salary',
-    category: 'Income',
-    amount: 3000.00,
-  },
-  {
-    id: '3',
-    date: new Date(2023, 4, 3),
-    description: 'Electric Bill',
-    category: 'Utilities',
-    amount: -85.75,
-  },
-  {
-    id: '4',
-    date: new Date(2023, 4, 4),
-    description: 'Coffee Shop',
-    category: 'Food',
-    amount: -4.50,
-  },
-  {
-    id: '5',
-    date: new Date(2023, 4, 5),
-    description: 'Movie Tickets',
-    category: 'Entertainment',
-    amount: -32.00,
-  },
-];
+const transactions: Transaction[] = [];
 
 const RecentTransactions: React.FC<RecentTransactionsProps> = ({ className }) => {
   return (
@@ -71,16 +35,22 @@ const RecentTransactions: React.FC<RecentTransactionsProps> = ({ className }) =>
               </tr>
             </thead>
             <tbody>
-              {transactions.map((transaction) => (
-                <tr key={transaction.id} className="border-b hover:bg-muted/50 transition-colors">
-                  <td className="p-4 text-sm">{format(transaction.date, 'MMM dd')}</td>
-                  <td className="p-4 text-sm">{transaction.description}</td>
-                  <td className="p-4 text-sm">{transaction.category}</td>
-                  <td className={`p-4 text-sm text-right ${transaction.amount >= 0 ? 'text-green-600' : 'text-red-600'}`}>
-                    {transaction.amount >= 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
-                  </td>
+              {transactions.length > 0 ? (
+                transactions.map((transaction) => (
+                  <tr key={transaction.id} className="border-b hover:bg-muted/50 transition-colors">
+                    <td className="p-4 text-sm">{format(transaction.date, 'MMM dd')}</td>
+                    <td className="p-4 text-sm">{transaction.description}</td>
+                    <td className="p-4 text-sm">{transaction.category}</td>
+                    <td className={`p-4 text-sm text-right ${transaction.amount >= 0 ? 'text-green-600' : 'text-red-600'}`}>
+                      {transaction.amount >= 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4} className="text-center p-4 text-sm text-muted-foreground">No transactions yet</td>
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
